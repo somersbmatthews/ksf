@@ -16,6 +16,9 @@ jobs:
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
+          name: start postgres
+          command: systemctl start postgresql
+      - run:
           name: waiting for postgres to be ready
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
   test:
