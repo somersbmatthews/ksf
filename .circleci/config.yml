@@ -9,8 +9,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
           POSTGRES_DB: postgres
-    working_directory:
-      - ~/
+    working_directory: ~/
     steps:
       - checkout
       - run:
