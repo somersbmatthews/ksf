@@ -37,6 +37,10 @@ const useSort = (nomsToSort=[]) => {
         return sortConfig.direction === SORT_DIRECTION.DOWN ? -1 : 1
       }
 
+      if (aDate > bDate) {
+        return sortConfig.direction === 'ascending' ? -1 : 1
+      }
+
       return 0
     })
     return nomsToSort
@@ -64,6 +68,7 @@ const useSort = (nomsToSort=[]) => {
     }
 
     setSortConfig({ key, direction })
+
   }
 
   return { sortedNoms, requestSort, sortConfig }
