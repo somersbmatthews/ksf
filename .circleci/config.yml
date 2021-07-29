@@ -5,6 +5,7 @@ jobs:
   build:
     working_directory: ~/
     docker:
+      - image: alpine:latest
       - image: postgres:9.6-alpine
         environment:
           PG_HOST: localhost
