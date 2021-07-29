@@ -1,20 +1,9 @@
-# This code is licensed from CircleCI to the user under the MIT license.
-# See here for details: https://circleci.com/developer/orbs/licensing
 version: 2.1
+setup: true
+orbs:
+  circletron: circletron/circletron@3.0.0
 
-description: >
-  Split circle configuration across monorepo packages and skip jobs for packages that did not change
-
-executors:
-  circletron-executor:
-    docker:
-      - image: circletron/circletron:3.0.0
-
-jobs:
+workflows:
   trigger-jobs:
-    executor: circletron-executor
-    steps:
-      - checkout
-      - run:
-          name: trigger jobs
-          command: circletron
+    jobs:
+      - circletron/trigger-jobs
