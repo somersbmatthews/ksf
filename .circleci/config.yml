@@ -18,6 +18,12 @@ jobs:
       - checkout
       - node/install-packages
       - run:
+          command: cd packages/app
+      - run:
+          command: npm run test
+      - run: 
+          command: cd ../api
+      - run:
           command: npm run test
 workflows:
   test_my_app:
