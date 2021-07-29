@@ -1,18 +1,17 @@
-version: 2.1
-setup: true
+version: '2.1'
 orbs:
-  circletron: circletron/circletron@3.0.0
-
-executors:
-  circletron-executor:
-    docker:
-      - image: circletron/circletron:3.0.0
-
+  node: circleci/node@x.y
 jobs:
-  trigger-jobs:
-    executor: circletron-executor
+  test:
+    executor:
+      name: node/default
+      tag: '16'
     steps:
       - checkout
+      - node/install-packages
       - run:
-          name: trigger jobs
           command: npm run test
+workflows:
+  test_my_app:
+    jobs:
+      - test
