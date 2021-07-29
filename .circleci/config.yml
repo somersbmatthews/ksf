@@ -10,8 +10,8 @@ jobs:
           POSTGRES_PASSWORD: postgres
     steps:
       - checkout
-      - run: sudo apt-get update
-      - run: sudo systemctl start postgresql
+      - run: apt-get update
+      - run: systemctl start postgresql
   test:
     executor:
       name: node/default
