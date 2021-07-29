@@ -3,13 +3,16 @@ setup: true
 orbs:
   circletron: circletron/circletron@3.0.0
 
+executors:
+  circletron-executor:
+    docker:
+      - image: circletron/circletron:3.0.0
+
 jobs:
-  run-tests:
+  trigger-jobs:
+    executor: circletron-executor
     steps:
       - checkout
-      - npm run test
-
-workflows:
-  ksf-monorepo-workflow:
-    jobs:
-      - run-tests
+      - run:
+          name: trigger jobs
+          command: npm run test
