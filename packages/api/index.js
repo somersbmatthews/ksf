@@ -4,6 +4,7 @@ const sequelize = require('./helper/sequelize.js');
 const app = require('./server');
 const PORT = process.env.PORT || 8080;
 
+
 async function testSequelizeConnection() {
   try {
     await sequelize.authenticate();
