@@ -16,6 +16,7 @@ const ApplicationForm = props => {
   // Stores state to ensure useEffects do not render on load
   const firstUpdate = useRef(true);
 
+  
 
   // passed down to card component for Link
   const openWindow = val => {
